@@ -21,7 +21,7 @@ if "Roads" in layers:
         lat1, lon1 = DISTRICTS[a]
         lat2, lon2 = DISTRICTS[b]
         color = STATUS_COLORS[d["status"]]
-        fig.add_trace(go.Scattermapbox(
+        fig.add_trace(go.Scattermap(
             lat=[lat1, lat2], lon=[lon1, lon2], mode="lines",
             line=dict(width=4, color=color),
             hoverinfo="text",
