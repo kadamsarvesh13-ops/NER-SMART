@@ -58,7 +58,7 @@ fig.add_trace(go.Scattermap(
     lat=vlat, lon=vlon, mode="markers", marker=dict(size=16, color="#e74c3c"),
     text=vtext, hoverinfo="text", name="Vehicles",
 ))
-fig.update_layout(mapbox=dict(style="open-street-map", zoom=5.2, center=dict(lat=25.7, lon=92.5)),
+fig.update_layout(map=dict(style="open-street-map", zoom=5.2, center=dict(lat=25.7, lon=92.5)),
                    margin=dict(l=0, r=0, t=0, b=0), height=480)
 st.plotly_chart(fig, use_container_width=True)
 
