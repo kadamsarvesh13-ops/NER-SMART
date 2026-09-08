@@ -30,7 +30,7 @@ if "Roads" in layers:
         ))
 
 if "Districts" in layers:
-    fig.add_trace(go.Scattermapbox(
+    fig.add_trace(go.Scattermap(
         lat=[v[0] for v in DISTRICTS.values()],
         lon=[v[1] for v in DISTRICTS.values()],
         mode="markers+text",
@@ -53,13 +53,13 @@ if "Vehicles" in layers:
         vlat.append(lat1 + (lat2 - lat1) * frac_within)
         vlon.append(lon1 + (lon2 - lon1) * frac_within)
         vtext.append(f"{v['id']} ({v['cargo']}) \u2192 {v['destination']}")
-    fig.add_trace(go.Scattermapbox(
+    fig.add_trace(go.Scattermap(
         lat=vlat, lon=vlon, mode="markers", marker=dict(size=14, color="#3498db", symbol="circle"),
         text=vtext, name="Vehicles",
     ))
 
 fig.update_layout(
-    mapbox=dict(style="open-street-map", zoom=5.2,
+    map=dict(style="open-street-map", zoom=5.2,
                 center=dict(lat=25.7, lon=92.5)),
     margin=dict(l=0, r=0, t=0, b=0), height=560,
 )
