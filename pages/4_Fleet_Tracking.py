@@ -25,12 +25,12 @@ fig = go.Figure()
 for a, b, d in G.edges(data=True):
     lat1, lon1 = DISTRICTS[a]
     lat2, lon2 = DISTRICTS[b]
-    fig.add_trace(go.Scattermapbox(
+    fig.add_trace(go.Scattermap(
         lat=[lat1, lat2], lon=[lon1, lon2], mode="lines",
         line=dict(width=2, color="#bdc3c7"), hoverinfo="skip", showlegend=False,
     ))
 
-fig.add_trace(go.Scattermapbox(
+fig.add_trace(go.Scattermap(
     lat=[v[0] for v in DISTRICTS.values()], lon=[v[1] for v in DISTRICTS.values()],
     mode="markers+text", marker=dict(size=10, color="#2c3e50"),
     text=list(DISTRICTS.keys()), textposition="top right", name="Districts",
@@ -54,7 +54,7 @@ for v in st.session_state.vehicles:
         f"On: {edge_data['name']} (risk {edge_data['risk_pct']:.0f}%)"
     )
 
-fig.add_trace(go.Scattermapbox(
+fig.add_trace(go.Scattermap(
     lat=vlat, lon=vlon, mode="markers", marker=dict(size=16, color="#e74c3c"),
     text=vtext, hoverinfo="text", name="Vehicles",
 ))
