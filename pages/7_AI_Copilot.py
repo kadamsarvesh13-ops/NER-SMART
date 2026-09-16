@@ -11,6 +11,10 @@ st.caption("Ask about current conditions in plain English. This is a rule-based 
 G = build_live_graph()
 edges_df = edges_dataframe(G)
 
+if G is None or edges_df is None:
+    st.error("Live network data isn't available right now, so the copilot can't answer questions.")
+    st.stop()
+
 SAMPLE_QUESTIONS = [
     "Which roads are highest risk right now?",
     "Which districts are at highest risk today?",
